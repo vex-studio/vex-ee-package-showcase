@@ -1,0 +1,82 @@
+com.bovinelabs.timeline	SubDirectorTrack	SubDirectorClip	1	Packages/com.bovinelabs.timeline/Sample~/Timelines/Timeline1.playable
+com.bovinelabs.timeline	SubDirectorTrack	SubTimelineClip	1	Packages/com.bovinelabs.timeline/Sample~/Generated/SubTimelineClip_Minimal.playable
+com.bovinelabs.timeline.audio	ImpactStingerTrack	ImpactStingerClip	1	Packages/com.bovinelabs.timeline.audio/Sample~/Generated/ImpactStingerClip_Minimal.playable
+com.bovinelabs.timeline.distance	DistanceToStatTrack	DistanceToStatClip	9	Packages/com.bovinelabs.timeline.distance/Sample~/Distance Showcase/Timelines/Intv0.playable
+com.bovinelabs.timeline.entitylinks	EntityLinkMutateTrack	EntityLinkMutateClip	3	Packages/com.bovinelabs.timeline.entitylinks/Sample~/EntityLinks Showcase/Timelines/Mut2.playable
+com.bovinelabs.timeline.entitylinks	EntityLinkParentTrack	EntityLinkParentClip	2	Packages/com.bovinelabs.timeline.entitylinks/Sample~/EntityLinks Showcase/Timelines/Par1.playable
+com.bovinelabs.timeline.entitylinks	EntityLinkCopyTransformTrack	EntityLinkCopyTransformClip	7	Packages/com.bovinelabs.timeline.entitylinks/Sample~/EntityLinks Showcase/Timelines/Mut2.playable
+com.bovinelabs.timeline.entitylinks	EntityLinkTargetPatchTrack	EntityLinkTargetPatchClip	2	Packages/com.bovinelabs.timeline.entitylinks/Sample~/EntityLinks Showcase/Timelines/Pat0.playable
+com.bovinelabs.timeline.essence	TimelineEssenceIntrinsicTrack	TimelineEssenceIntrinsicClip	4	Packages/com.bovinelabs.timeline.essence/Sample~/Essence Showcase/Timelines/Intr1.playable
+com.bovinelabs.timeline.essence	TimelineEssenceStatTrack	TimelineEssenceStatClip	4	Packages/com.bovinelabs.timeline.essence/Sample~/Essence Showcase/Timelines/Stat2.playable
+com.bovinelabs.timeline.essence	TimelineEssenceTickTrack	TimelineEssenceTickClip	1	Packages/com.bovinelabs.timeline.essence/Sample~/Essence Showcase/Timelines/Generated/TimelineEssenceTickClip_Minimal.playable
+com.bovinelabs.timeline.essence	TimelineEssenceEventTrack	TimelineEssenceEventClip	3	Packages/com.bovinelabs.timeline.essence/Sample~/Essence Showcase/Timelines/Event2.playable
+com.bovinelabs.timeline.grid.influence	GridSpawnTrack	GridSpawnClip	1	Packages/com.bovinelabs.timeline.grid.influence/Sample~/Grid Influence Showcase/Timelines/Generated/GridSpawnClip_Minimal.playable
+com.bovinelabs.timeline.grid.influence	GridInfluenceTrack	GridInfluenceClip	17	Packages/com.bovinelabs.timeline.grid.influence/Sample~/Grid Influence Showcase/Timelines/Write2.playable
+com.bovinelabs.timeline.grid.influence	GridCompositeTrack	GridCompositeClip	3	Packages/com.bovinelabs.timeline.grid.influence/Sample~/Grid Influence Showcase/Timelines/Comp1.playable
+com.bovinelabs.timeline.grid.influence	GridFlowSteeringTrack	GridFlowSteeringClip	8	Packages/com.bovinelabs.timeline.grid.influence/Sample~/Grid Influence Showcase/Timelines/Flow0.playable
+com.bovinelabs.timeline.parenting	TemporaryDetachTrack	TemporaryDetachClip	5	Packages/com.bovinelabs.timeline.parenting/Samples~/Parenting Showcase/Timelines/Seq1_Detach.playable
+com.bovinelabs.timeline.particles	ParticleSystemTrack	ParticleSystemClip	1	Packages/com.bovinelabs.timeline.particles/Sample~/Generated/ParticleSystemClip_Minimal.playable
+com.bovinelabs.timeline.physics	PhysicsForceTrack	PhysicsForceClip	32	Packages/com.bovinelabs.timeline.physics/Sample~/Knockback Reaction/Timelines/Force_3.playable
+com.bovinelabs.timeline.physics	PhysicsVelocityTrack	PhysicsVelocityClip	25	Packages/com.bovinelabs.timeline.physics/Sample~/Physics/Timeline/Timeline.playable
+com.bovinelabs.timeline.physics	PhysicsDragTrack	PhysicsDragClip	12	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Force_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsTriggerInstantiateClip	7	Packages/com.bovinelabs.timeline.particles/Sample~/Generated/ParticleSystemClip_Minimal.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsTriggerConditionClip	6	Packages/com.bovinelabs.timeline.particles/Sample~/Generated/ParticleSystemClip_Minimal.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsTriggerForceClip	4	Packages/com.bovinelabs.timeline.physics/Sample~/Swept Trigger Test/SweptTest_Force.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsKnockbackClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsKnockbackClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsThrustClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsThrustClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsVortexClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsVortexClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsBreakForceClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsBreakForceClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsTriggerQueryClip	3	Packages/com.bovinelabs.timeline.physics/Sample~/Swept Trigger Test/SweptTest_Query.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsTargetSelectClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsTargetSelectClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsDirectionalQueryClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsDirectionalQueryClip_0.playable
+com.bovinelabs.timeline.physics	StatefulTriggerTrack	PhysicsAoEQueryClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsAoEQueryClip_0.playable
+com.bovinelabs.timeline.physics	PhysicsKinematicOverrideTrack	PhysicsKinematicOverrideClip	2	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Kin_0.playable
+com.bovinelabs.timeline.physics	SocketReturnTrack	SocketReturnClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/SocketReturnClip_Minimal.playable
+com.bovinelabs.timeline.physics	PhysicsShapeSwapTrack	PhysicsShapeSwapClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsShapeSwapClip_Minimal.playable
+com.bovinelabs.timeline.physics	PhysicsShapeResizeTrack	PhysicsShapeResizeClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsShapeResizeClip_Minimal.playable
+com.bovinelabs.timeline.physics	PhysicsGravityOverrideTrack	PhysicsGravityOverrideClip	4	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Gravity_2.playable
+com.bovinelabs.timeline.physics	PhysicsLinearPIDTrack	PhysicsLinearPIDClip	9	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/LinPid_0.playable
+com.bovinelabs.timeline.physics	PhysicsAngularPIDTrack	PhysicsAngularPIDClip	5	Packages/com.bovinelabs.timeline.physics/Sample~/Sword Swing/SwordSwing.playable
+com.bovinelabs.timeline.physics	PhysicsTeleportTrack	PhysicsTeleportClip	3	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Teleport_0.playable
+com.bovinelabs.timeline.physics	PhysicsFilterOverrideTrack	PhysicsFilterOverrideClip	2	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Filter_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsTriggerInstantiateClip	7	Packages/com.bovinelabs.timeline.particles/Sample~/Generated/ParticleSystemClip_Minimal.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsTriggerConditionClip	6	Packages/com.bovinelabs.timeline.particles/Sample~/Generated/ParticleSystemClip_Minimal.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsTriggerForceClip	4	Packages/com.bovinelabs.timeline.physics/Sample~/Swept Trigger Test/SweptTest_Force.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsKnockbackClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsKnockbackClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsThrustClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsThrustClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsVortexClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsVortexClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsBreakForceClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsBreakForceClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsTriggerQueryClip	3	Packages/com.bovinelabs.timeline.physics/Sample~/Swept Trigger Test/SweptTest_Query.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsTargetSelectClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsTargetSelectClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsDirectionalQueryClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsDirectionalQueryClip_0.playable
+com.bovinelabs.timeline.physics	SweptTriggerTrack	PhysicsAoEQueryClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/PhysicsAoEQueryClip_0.playable
+com.bovinelabs.timeline.physics	PhysicsSplineFollowTrack	PhysicsSplineFollowClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Spline Follow Example/SplineFollowExample.playable
+com.bovinelabs.timeline.physics	PhysicsVelocityClampTrack	PhysicsVelocityClampClip	5	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Clamp_0.playable
+com.bovinelabs.timeline.physics	PhysicsRicochetTrack	PhysicsRicochetClip	2	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Ricochet_0.playable
+com.bovinelabs.timeline.physics	ChainFollowTrack	ChainFollowClip	1	Packages/com.bovinelabs.timeline.physics/Sample~/Physics Showcase/Timelines/Generated/ChainFollowClip_Minimal.playable
+com.bovinelabs.timeline.playerinputs	NavFlowInputTrack	NavFlowInputClip	1	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Generated/NavFlowInputClip_Minimal.playable
+com.bovinelabs.timeline.playerinputs	ControlOverrideTrack	ControlOverrideClip	1	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Generated/ControlOverrideClip_Minimal.playable
+com.bovinelabs.timeline.playerinputs	AxisTransformTrack	AxisTransformClip	7	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Axis0.playable
+com.bovinelabs.timeline.playerinputs	InputBufferTrack	InputBufferWindowClip	4	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Cmd1_Motion.playable
+com.bovinelabs.timeline.playerinputs	InputBufferTrack	InputBufferClearClip	2	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Buf1_ClearWindow.playable
+com.bovinelabs.timeline.playerinputs	InputEventsTrack	InputEventsClip	1	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Evt0_Edges.playable
+com.bovinelabs.timeline.playerinputs	SplineFlowInputTrack	SplineFlowInputClip	1	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Generated/SplineFlowInputClip_Minimal.playable
+com.bovinelabs.timeline.playerinputs	CommandSequenceTrack	CommandSequenceClip	2	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Cmd1_Motion.playable
+com.bovinelabs.timeline.playerinputs	FlowInputTrack	FlowInputClip	3	Packages/com.bovinelabs.timeline.playerinputs/Sample~/PlayerInputs Showcase/Timelines/Flow0.playable
+com.bovinelabs.timeline.time	TimelineTimeScaleTrack	TimelineTimeScaleClip	5	Packages/com.bovinelabs.timeline.time/Sample~/Time Showcase/Timelines/PT3.playable
+com.bovinelabs.timeline.time	WorldTimeScaleTrack	WorldTimeScaleClip	4	Packages/com.bovinelabs.timeline.time/Sample~/SlowMo Demo/SlowMoTimeline.playable
+com.bovinelabs.timeline.time	TimelineTimeJumpTrack	TimelineTimeJumpClip	1	Packages/com.bovinelabs.timeline.time/Sample~/Time Showcase/Timelines/Generated/TimelineTimeJumpClip_Minimal.playable
+com.bovinelabs.timeline.transform	TransformRotationTrack	RotationLookAtTargetClip	3	Packages/com.bovinelabs.timeline.transform/Sample~/Transform Showcase/Timelines/Rotation_0.playable
+com.bovinelabs.timeline.transform	TransformRotationTrack	RotationLookAtStartClip	1	Packages/com.bovinelabs.timeline.transform/Sample~/Transform Showcase/Timelines/Rotation_1.playable
+com.bovinelabs.timeline.transform	TransformScaleTrack	ScaleStartClip	1	Packages/com.bovinelabs.timeline.transform/Sample~/Transform Showcase/Timelines/Scale_3.playable
+com.bovinelabs.timeline.transform	TransformScaleTrack	ScaleClip	12	Packages/com.bovinelabs.timeline.time/Sample~/SlowMo Demo/SlowMoTimeline.playable
+com.bovinelabs.timeline.transform	TransformPositionTrack	PositionStartClip	1	Packages/com.bovinelabs.timeline.transform/Sample~/Transform Showcase/Timelines/Position_3.playable
+com.bovinelabs.timeline.transform	TransformPositionTrack	PositionClip	65	Packages/com.bovinelabs.timeline.physics/Sample~/Swept Trigger Test/SweptTriggerTest.playable
+com.bovinelabs.timeline.transform	CarrotTransformTrack	CarrotTransformClip	1	Packages/com.bovinelabs.timeline.transform/Sample~/Transform Showcase/Timelines/Carrot_0.playable
+com.bovinelabs.timeline.ui	UxmlViewTrack	UxmlViewClip	2	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Uxml1.playable
+com.bovinelabs.timeline.ui	DataDisplayTrack	DataDisplayClip	1	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Data0.playable
+com.bovinelabs.timeline.ui	UIBindOverrideTrack	UIBindOverrideClip	1	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Generated/UIBindOverrideClip_Minimal.playable
+com.bovinelabs.timeline.ui	UITextRevealTrack	UITextRevealClip	2	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Reveal0.playable
+com.bovinelabs.timeline.ui	NumberTrack	NumberClip	2	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Number0.playable
+com.bovinelabs.timeline.ui	EssenceUITrack	EssenceUIClip	1	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Essence0.playable
+com.bovinelabs.timeline.ui	UssClassTrack	UssClassClip	1	Packages/com.bovinelabs.timeline.ui/Sample~/UI Showcase/Timelines/Uss0.playable
