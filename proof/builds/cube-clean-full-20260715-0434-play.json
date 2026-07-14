@@ -1,0 +1,12 @@
+{
+  "label": "play",
+  "path": "/home/i/GitHub/com.vex.unity.vex-ee/Screenshots/cube-clean-full-20260715-0434-play.png",
+  "bytes": 325346,
+  "width": 1920,
+  "height": 1080,
+  "sampled": 1947,
+  "lit_ratio": 1.0,
+  "max_luminance": 209,
+  "ok": true
+}
+PASS play: visible content (lit_ratio=1.0000, max_lum=209, 1920x1080)

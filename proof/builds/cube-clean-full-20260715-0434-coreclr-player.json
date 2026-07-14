@@ -1,0 +1,12 @@
+{
+  "label": "player",
+  "path": "/home/i/GitHub/com.vex.unity.vex-ee/Screenshots/cube-clean-full-20260715-0434-coreclr-player.png",
+  "bytes": 192202,
+  "width": 1280,
+  "height": 720,
+  "sampled": 1947,
+  "lit_ratio": 1.0,
+  "max_luminance": 217,
+  "ok": true
+}
+PASS player: visible content (lit_ratio=1.0000, max_lum=217, 1280x720)
