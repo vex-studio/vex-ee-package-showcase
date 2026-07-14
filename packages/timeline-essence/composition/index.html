@@ -3,70 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1920, height=1080" />
-  <title>Timeline Essence — HyperFrames showcase</title>
+  <title>Timeline Essence — HyperFrames</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     html, body { width:1920px; height:1080px; overflow:hidden; background:#0b0f17; }
-    body { font-family: "Inter", system-ui, sans-serif; color:#f8fafc; }
+    body { font-family: Inter, system-ui, sans-serif; color:#f8fafc; }
     #root {
       width:1920px; height:1080px; position:relative;
-      background: radial-gradient(1200px 700px at 20% 10%, #D946EF33, transparent 55%),
+      background: radial-gradient(1100px 600px at 15% 10%, #D946EF33, transparent 55%),
                   linear-gradient(160deg, #0b0f17 0%, #111827 55%, #0b0f17 100%);
     }
-    #accent { position:absolute; left:0; top:0; width:18px; height:1080px; background:#D946EF; }
-    #kicker {
-      position:absolute; left:96px; top:120px; font-size:28px; letter-spacing:0.18em;
-      text-transform:uppercase; color:#D946EF; font-weight:600;
+    #accent { position:absolute; left:0; top:0; width:16px; height:1080px; background:#D946EF; }
+    #kicker { position:absolute; left:80px; top:60px; font-size:22px; letter-spacing:.18em;
+      text-transform:uppercase; color:#D946EF; font-weight:600; }
+    #title { position:absolute; left:80px; top:110px; font-size:64px; font-weight:800; max-width:1200px; }
+    #tagline { position:absolute; left:80px; top:210px; font-size:28px; color:#cbd5e1; max-width:1100px; }
+    #strip {
+      position:absolute; left:60px; top:360px; width:1800px; height:160px;
+      background:#0f172a; border:2px solid #1e293b; border-radius:16px; overflow:hidden;
     }
-    #title {
-      position:absolute; left:96px; top:180px; font-size:92px; font-weight:800; line-height:1.05;
-      max-width:1400px;
+    #strip::before {
+      content:"TIMELINE STRIP · clips from this package";
+      position:absolute; left:20px; top:12px; font-size:14px; color:#64748b; letter-spacing:.12em;
     }
-    #tagline {
-      position:absolute; left:96px; top:360px; font-size:40px; color:#cbd5e1; max-width:1500px; line-height:1.35;
+    .tlclip {
+      position:absolute; top:56px; height:72px; min-width:200px; padding:12px 16px;
+      background:#D946EF22; border:2px solid #D946EF; border-radius:10px; font-size:22px; font-weight:700;
     }
-    .bullet {
-      position:absolute; left:96px; font-size:34px; color:#e2e8f0;
-      padding:14px 28px; border-left:6px solid #D946EF; background:#ffffff10;
-      border-radius:0 12px 12px 0; max-width:1200px;
-    }
-    #b0 { top:500px; } #b1 { top:590px; } #b2 { top:680px; } #b3 { top:770px; }
-    #pkg {
-      position:absolute; left:96px; bottom:80px; font-size:24px; color:#94a3b8; font-family: ui-monospace, monospace;
-    }
-    #badge {
-      position:absolute; right:80px; bottom:80px; font-size:22px; color:#0b0f17; background:#D946EF;
-      padding:12px 22px; border-radius:999px; font-weight:700;
-    }
-    #icon { position:absolute; right:120px; top:140px; font-size:140px; opacity:0.9; }
+    .tlclip span { display:block; font-size:14px; font-weight:500; color:#94a3b8; margin-top:4px; }
+    #howto { position:absolute; left:80px; top:560px; font-size:26px; color:#e2e8f0; max-width:1600px; line-height:1.45; }
+    #howto strong { color:#D946EF; }
+    .beat { position:absolute; top:980px; font-size:16px; color:#64748b; }
+    #pkg { position:absolute; left:80px; bottom:40px; font-size:20px; color:#94a3b8; font-family:ui-monospace,monospace; }
+    #badge { position:absolute; right:60px; bottom:36px; font-size:18px; color:#0b0f17; background:#D946EF;
+      padding:10px 18px; border-radius:999px; font-weight:700; }
+    #icon { position:absolute; right:100px; top:80px; font-size:100px; opacity:.85; }
+    #count { position:absolute; right:100px; top:220px; font-size:22px; color:#94a3b8; text-align:right; }
   </style>
 </head>
 <body>
-  <div id="root" data-composition-id="timeline-essence" data-start="0" data-duration="8" data-width="1920" data-height="1080">
-    <div class="clip" id="accent" data-start="0" data-duration="8" data-track-index="0"></div>
-    <div class="clip" id="icon" data-start="0" data-duration="8" data-track-index="1">💠</div>
-    <div class="clip" id="kicker" data-start="0" data-duration="8" data-track-index="2">BovineLabs · Vex EE</div>
-    <div class="clip" id="title" data-start="0" data-duration="8" data-track-index="3">Timeline Essence</div>
-    <div class="clip" id="tagline" data-start="0" data-duration="8" data-track-index="4">Buff stats, fire events, grant counters from timeline</div>
-      <div class="clip bullet" id="b0" data-start="0" data-duration="8" data-track-index="5">Stat / Intrinsic / Event tracks</div>
-      <div class="clip bullet" id="b1" data-start="0" data-duration="8" data-track-index="6">Link routing</div>
-      <div class="clip bullet" id="b2" data-start="0" data-duration="8" data-track-index="7">Delivery + retry</div>
-    <div class="clip" id="pkg" data-start="0" data-duration="8" data-track-index="8">com.bovinelabs.timeline.essence</div>
-    <div class="clip" id="badge" data-start="0" data-duration="8" data-track-index="9">timeline · DOTS · designer tool</div>
+  <div id="root" data-composition-id="timeline-essence" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+    <div class="clip" id="accent" data-start="0" data-duration="10" data-track-index="0"></div>
+    <div class="clip" id="icon" data-start="0" data-duration="10" data-track-index="1">💠</div>
+    <div class="clip" id="kicker" data-start="0" data-duration="10" data-track-index="2">Designer tour · clip strip</div>
+    <div class="clip" id="title" data-start="0" data-duration="10" data-track-index="3">Timeline Essence</div>
+    <div class="clip" id="tagline" data-start="0" data-duration="10" data-track-index="4">Buff stats, fire events, grant counters from timeline</div>
+    <div class="clip" id="strip" data-start="0" data-duration="10" data-track-index="5"></div>
+    <div class="clip tlclip" id="clip0" data-start="0" data-duration="10" data-track-index="10" style="left:100px">TimelineEssenceEvent<span>TimelineEssenceEventTr · TargetsAuthoring</span></div><div class="clip tlclip" id="clip1" data-start="0" data-duration="10" data-track-index="11" style="left:380px">TimelineEssenceIntrinsic<span>TimelineEssenceIntrins · TargetsAuthoring</span></div><div class="clip tlclip" id="clip2" data-start="0" data-duration="10" data-track-index="12" style="left:660px">TimelineEssenceStat<span>TimelineEssenceStatTra · TargetsAuthoring</span></div><div class="clip tlclip" id="clip3" data-start="0" data-duration="10" data-track-index="13" style="left:940px">TimelineEssenceTick<span>TimelineEssenceTickTra · TargetsAuthoring</span></div>
+    <div class="clip" id="howto" data-start="0" data-duration="10" data-track-index="9">
+      <strong>How to use:</strong> add track → place clip → bind → bake SubScene → play.<br/>
+      Cutscene → gameplay bridge: at this beat, fire OnX / +N counters / while-active buffs.
+    </div>
+    <div class="clip" id="count" data-start="0" data-duration="10" data-track-index="30">
+      4 clips<br/>4 tracks
+    </div>
+    <div class="clip beat" id="beat0" data-start="0" data-duration="10" data-track-index="20" style="left:120px">0s · title</div><div class="clip beat" id="beat1" data-start="0" data-duration="10" data-track-index="21" style="left:540px">1.2s · clips on strip</div><div class="clip beat" id="beat2" data-start="0" data-duration="10" data-track-index="22" style="left:960px">3s · recipe beats</div><div class="clip beat" id="beat3" data-start="0" data-duration="10" data-track-index="23" style="left:1380px">5s · scrub = study</div>
+    <div class="clip" id="pkg" data-start="0" data-duration="10" data-track-index="40">com.bovinelabs.timeline.essence</div>
+    <div class="clip" id="badge" data-start="0" data-duration="10" data-track-index="41">educational · scrub me</div>
   </div>
   <script>
     window.__timelines = window.__timelines || {};
     const tl = gsap.timeline({ paused: true });
-    tl.from("#icon", { opacity: 0, scale: 0.6, duration: 0.6, ease: "back.out(1.6)" }, 0.1);
-    tl.from("#kicker", { opacity: 0, y: -20, duration: 0.4 }, 0.2);
-    tl.from("#title", { opacity: 0, y: 40, duration: 0.55 }, 0.35);
-    tl.from("#tagline", { opacity: 0, y: 24, duration: 0.5 }, 0.7);
-      tl.from("#b0", { opacity: 0, x: -40, duration: 0.45 }, 1.20);
-      tl.from("#b1", { opacity: 0, x: -40, duration: 0.45 }, 1.55);
-      tl.from("#b2", { opacity: 0, x: -40, duration: 0.45 }, 1.90);
-    tl.from("#pkg", { opacity: 0, duration: 0.4 }, 2.5);
-    tl.from("#badge", { opacity: 0, scale: 0.9, duration: 0.4 }, 2.8);
+    tl.from("#icon", { opacity: 0, scale: 0.7, duration: 0.5, ease: "back.out(1.4)" }, 0.05);
+    tl.from("#kicker", { opacity: 0, y: -12, duration: 0.35 }, 0.15);
+    tl.from("#title", { opacity: 0, y: 28, duration: 0.45 }, 0.25);
+    tl.from("#tagline", { opacity: 0, y: 16, duration: 0.4 }, 0.45);
+    tl.from("#strip", { opacity: 0, duration: 0.4 }, 0.9);
+    tl.from("#count", { opacity: 0, duration: 0.35 }, 0.95);
+    tl.from("#clip0", { opacity: 0, y: 30, duration: 0.4 }, 1.2);
+tl.from("#clip1", { opacity: 0, y: 30, duration: 0.4 }, 1.45);
+tl.from("#clip2", { opacity: 0, y: 30, duration: 0.4 }, 1.7);
+tl.from("#clip3", { opacity: 0, y: 30, duration: 0.4 }, 1.95);
+    tl.from("#howto", { opacity: 0, y: 20, duration: 0.5 }, 3.0);
+    tl.from("#beat0", { opacity: 0, duration: 0.35 }, 0.8);
+tl.from("#beat1", { opacity: 0, duration: 0.35 }, 0.9500000000000001);
+tl.from("#beat2", { opacity: 0, duration: 0.35 }, 1.1);
+tl.from("#beat3", { opacity: 0, duration: 0.35 }, 1.25);
+    tl.from("#pkg", { opacity: 0, duration: 0.35 }, 4.5);
+    tl.from("#badge", { opacity: 0, scale: 0.92, duration: 0.35 }, 4.7);
     window.__timelines["timeline-essence"] = tl;
   </script>
 </body>

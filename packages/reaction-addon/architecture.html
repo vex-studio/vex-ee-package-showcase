@@ -527,12 +527,12 @@
         <div class="pulse-dot"></div>
         <h1>Reaction Addon</h1>
       </div>
-      <p class="subtitle">Lifecycle &amp; tick actions on top of Reaction core</p>
+      <p class="subtitle">Clip families → bake → systems → sink</p>
     </div>
 
     <!-- Main Diagram -->
     <div class="diagram-container">
-      <svg viewBox="0 0 860 438" role="img" aria-label="Reaction Addon — Lifecycle &amp; tick actions on top of Reaction core (architecture diagram)">
+      <svg viewBox="0 0 930 438" role="img" aria-label="Reaction Addon — Clip families → bake → systems → sink (architecture diagram)">
         <!-- Definitions -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -556,56 +556,51 @@
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Boundaries (behind everything) -->
-        <rect x="20" y="250" width="800" height="120" rx="12" class="c-region" stroke-width="1"/>
-        <text x="28" y="268" class="t-cloud" font-size="9" font-weight="600">Package runtime</text>
+        <rect x="10" y="90" width="880" height="280" rx="12" class="c-region" stroke-width="1"/>
+        <text x="18" y="108" class="t-cloud" font-size="9" font-weight="600">com.bovinelabs.reaction.addon</text>
 
         <!-- Connection paths (before components for correct z-order) -->
-        <path d="M 190 315 L 250 315" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M 390 315 L 650 315" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M 450 315 L 190 315" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        <path d="M 190 315 L 650 315" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path d="M 180 155 L 185 155 Q 190 155 190 160 L 190 310 Q 190 315 195 315 L 200 315" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path d="M 360 315 L 440 315" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path d="M 600 315 L 700 315" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
 
         <!-- Components -->
-        <rect x="50" y="280" width="140" height="70" rx="6" class="c-mask"/>
-        <rect x="50" y="280" width="140" height="70" rx="6" class="c-backend" stroke-width="1.5"/>
-        <text x="120" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Reaction Core</text>
-        <text x="120" y="329" class="t-muted" font-size="9" text-anchor="middle">IF/THEN</text>
-        <text x="120" y="342" class="t-backend" font-size="7" text-anchor="middle">baseline</text>
+        <rect x="40" y="120" width="140" height="70" rx="6" class="c-mask"/>
+        <rect x="40" y="120" width="140" height="70" rx="6" class="c-frontend" stroke-width="1.5"/>
+        <text x="110" y="153" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">No tracks</text>
+        <text x="110" y="169" class="t-muted" font-size="9" text-anchor="middle">1 clip(s)</text>
+        <text x="110" y="182" class="t-frontend" font-size="7" text-anchor="middle">author</text>
 
-        <rect x="250" y="280" width="140" height="70" rx="6" class="c-mask"/>
-        <rect x="250" y="280" width="140" height="70" rx="6" class="c-backend" stroke-width="1.5"/>
-        <text x="320" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Addon Actions</text>
-        <text x="320" y="329" class="t-muted" font-size="9" text-anchor="middle">lifecycle / tick</text>
-        <text x="320" y="342" class="t-backend" font-size="7" text-anchor="middle">ext</text>
+        <rect x="200" y="280" width="160" height="70" rx="6" class="c-mask"/>
+        <rect x="200" y="280" width="160" height="70" rx="6" class="c-backend" stroke-width="1.5"/>
+        <text x="280" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bake path</text>
+        <text x="280" y="329" class="t-muted" font-size="9" text-anchor="middle">Authoring → ECS</text>
+        <text x="280" y="342" class="t-backend" font-size="7" text-anchor="middle">must bake</text>
 
-        <rect x="450" y="280" width="140" height="70" rx="6" class="c-mask"/>
-        <rect x="450" y="280" width="140" height="70" rx="6" class="c-backend" stroke-width="1.5"/>
-        <text x="520" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Timeline Essence</text>
-        <text x="520" y="329" class="t-muted" font-size="9" text-anchor="middle">events / stats</text>
-        <text x="520" y="342" class="t-backend" font-size="7" text-anchor="middle">consumer</text>
+        <rect x="440" y="280" width="160" height="70" rx="6" class="c-mask"/>
+        <rect x="440" y="280" width="160" height="70" rx="6" class="c-backend" stroke-width="1.5"/>
+        <text x="520" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Track systems</text>
+        <text x="520" y="329" class="t-muted" font-size="9" text-anchor="middle">blend / apply</text>
+        <text x="520" y="342" class="t-backend" font-size="7" text-anchor="middle">DOTS</text>
 
-        <rect x="650" y="280" width="140" height="70" rx="6" class="c-mask"/>
-        <rect x="650" y="280" width="140" height="70" rx="6" class="c-database" stroke-width="1.5"/>
-        <text x="720" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Entities</text>
-        <text x="720" y="329" class="t-muted" font-size="9" text-anchor="middle">payloads</text>
-        <text x="720" y="342" class="t-database" font-size="7" text-anchor="middle">ECS</text>
+        <rect x="700" y="280" width="160" height="70" rx="6" class="c-mask"/>
+        <rect x="700" y="280" width="160" height="70" rx="6" class="c-database" stroke-width="1.5"/>
+        <text x="780" y="313" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Runtime sink</text>
+        <text x="780" y="329" class="t-muted" font-size="9" text-anchor="middle">body / event / UI</text>
 
         <!-- Connection labels -->
-        <rect x="198.2" y="351" width="43.6" height="14" rx="3" class="c-mask"/>
-        <text x="220" y="361" class="t-muted" font-size="8" text-anchor="middle">extends</text>
-        <rect x="498.2" y="351" width="43.6" height="14" rx="3" class="c-mask"/>
-        <text x="520" y="361" class="t-muted" font-size="8" text-anchor="middle">actions</text>
-        <rect x="300.6" y="351" width="38.8" height="14" rx="3" class="c-mask"/>
-        <text x="320" y="361" class="t-muted" font-size="8" text-anchor="middle">events</text>
-        <rect x="400.6" y="351" width="38.8" height="14" rx="3" class="c-mask"/>
-        <text x="420" y="361" class="t-muted" font-size="8" text-anchor="middle">mutate</text>
+
+
+
 
         <!-- Legend -->
         <text x="40" y="409" class="t-primary" font-size="9" font-weight="600">Legend</text>
-        <rect x="40" y="414" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
-        <text x="60" y="422" class="t-muted" font-size="8">Backend</text>
-        <rect x="133" y="414" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
-        <text x="153" y="422" class="t-muted" font-size="8">Database</text>
+        <rect x="40" y="414" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
+        <text x="60" y="422" class="t-muted" font-size="8">Frontend</text>
+        <rect x="138" y="414" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
+        <text x="158" y="422" class="t-muted" font-size="8">Backend</text>
+        <rect x="231" y="414" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
+        <text x="251" y="422" class="t-muted" font-size="8">Database</text>
       </svg>
     </div>
 
@@ -613,22 +608,22 @@
     <div class="cards">
       <div class="card">
         <div class="card-header">
-          <div class="card-dot emerald"></div>
-          <h3>THEN side</h3>
+          <div class="card-dot cyan"></div>
+          <h3>When a designer says…</h3>
         </div>
         <ul>
-          <li>&bull; Lifecycle management actions</li>
-          <li>&bull; Tick distribution helpers</li>
+          <li>&bull; Extra THEN actions: spawn timelines, tick distributions, lifecycle hooks.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <div class="card-dot violet"></div>
-          <h3>With</h3>
+          <div class="card-dot emerald"></div>
+          <h3>Clip catalog size</h3>
         </div>
         <ul>
-          <li>&bull; Reaction core + Essence timeline</li>
+          <li>&bull; 0 clips · 0 tracks</li>
+          <li>&bull; See package page table for each clip</li>
         </ul>
       </div>
     </div>

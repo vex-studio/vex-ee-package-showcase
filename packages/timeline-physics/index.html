@@ -5,34 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Timeline Physics · Vex package showcase</title>
   <link rel="stylesheet" href="../../assets/site.css" />
-  <style>.hero-accent{background:#EF4444}</style>
+  <style>
+    .hero-accent{background:#EF4444}
+    .pill{display:inline-block;background:#1e293b;color:#cbd5e1;padding:2px 10px;border-radius:999px;font-size:12px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:960px){.two-col{grid-template-columns:1fr}}
+    table.cat{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 24px}
+    table.cat th,table.cat td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+    table.cat th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px;font-size:1.35rem}
+    .muted{color:var(--muted)}
+    .diagrams{display:grid;grid-template-columns:1fr;gap:12px}
+    .diagrams iframe{width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#000}
+    .tabs a{margin-right:12px}
+    ol.recipe{padding-left:1.2rem;color:#cbd5e1}
+    ol.recipe li{margin:6px 0}
+    .full{grid-column:1/-1}
+  </style>
 </head>
 <body>
   <header class="top">
     <a href="../../index.html">← All packages</a>
-    <span class="brand">Vex EE · Designer Showcase</span>
+    <span class="brand">Vex EE · Designer + Programmer</span>
   </header>
   <main class="pkg-page">
-    <div class="hero-accent"></div>
+    <div class="hero-accent full"></div>
     <section class="copy">
-      <p class="kicker">💥 BovineLabs</p>
+      <p class="kicker">💥 BovineLabs <span class='pill'>Learn #5</span></p>
       <h1>Timeline Physics</h1>
       <p class="lede">Forces, freezes, triggers, PID motors</p>
       <p class="designer"><strong>When a designer says…</strong> Kick / launch / zero-g / phase through walls / spawn on enter — all from timeline.</p>
-      <h2>What you get</h2>
-      <ul><li>Force &amp; drag</li><li>Gravity / kinematic / filter</li><li>Linear &amp; angular PID</li><li>Stateful trigger spawn</li></ul>
       <p class="mono">com.bovinelabs.timeline.physics</p>
-      <p class="links">
-        <a href="composition/index.html" target="_blank" rel="noopener">Open HyperFrames composition ↗</a>
-        · <a href="architecture.html">Archify architecture ↗</a>
+      <p class="links tabs">
+        <a href="#clips">Clip catalog</a>
+        · <a href="#howto">How to use</a>
+        · <a href="#diagrams">Diagrams</a>
+        · <a href="composition/index.html" target="_blank" rel="noopener">HyperFrames ↗</a>
+        · <a href="for-programmers.html"><strong>For programmers ↗</strong></a>
         · <a href="https://github.com/vex-studio/com.bovinelabs.timeline.physics">GitHub</a>
       </p>
+      <div class="section">
+        <h2>Prerequisites</h2>
+        <p><code>com.bovinelabs.timeline</code>, <code>com.bovinelabs.timeline.entitylinks</code>, <code>com.unity.physics</code>, <code>com.unity.physics.custom</code></p>
+        <h2>Soft-gates (optional features)</h2>
+        <ul><li><code>UNITY_SPLINES</code> — Spline-related tracks</li><li><code>BL_QUILL</code> — Debug drawers (optional)</li></ul>
+      </div>
     </section>
     <section class="stage-wrap">
-      <div class="stage-label">HyperFrames motion card · scrub with player</div>
+      <div class="stage-label">HyperFrames · educational clip strip (scrub)</div>
       <iframe class="stage" title="Timeline Physics composition" src="composition/index.html" loading="lazy"></iframe>
-      <p class="hint">Composition is seekable HTML (GSAP). Preview full-screen via the link above, or <code>hyperframes preview</code> in the composition folder.</p>
+      <p class="hint">Motion teaches the <em>catalog</em> (track/clip names on a timeline strip), not a fake Unity sim.
+      Full-screen via the HyperFrames link. Recipe steps are below.</p>
+    </section>
+
+    <section class="full section" id="clips">
+      <h2>Clip &amp; track catalog (38)</h2>
+      <p class="muted">Generated from Authoring <code>[TrackClipType]</code>, <code>[TrackBindingType]</code>, and <code>[DisplayName]</code>. One clip may appear on multiple tracks (e.g. Stateful + Swept).</p>
+      <table class="cat">
+        <thead><tr><th>Menu</th><th>Track</th><th>Clip</th><th>Bind</th><th>Use when</th></tr></thead>
+        <tbody>
+          <tr><td><code>Vex/Physics/Angular PID</code></td><td><code>PhysicsAngularPIDTrack</code></td><td><code>PhysicsAngularPIDClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Physically turn body toward a rotation</td></tr><tr><td><code>Vex/Physics/Chain Follow</code></td><td><code>ChainFollowTrack</code></td><td><code>ChainFollowClip</code></td><td><code>ChainWeaponAuthoring</code></td><td>Follow a chain-weapon chain of bodies</td></tr><tr><td><code>Vex/Physics/Drag (Brakes)</code></td><td><code>PhysicsDragTrack</code></td><td><code>PhysicsDragClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Damp linear/angular velocity (air-brake)</td></tr><tr><td><code>Vex/Physics/Filter Override</code></td><td><code>PhysicsFilterOverrideTrack</code></td><td><code>PhysicsFilterOverrideClip</code></td><td><code>GameObject</code></td><td>Override collision filter while active</td></tr><tr><td><code>Vex/Physics/Force</code></td><td><code>PhysicsForceTrack</code></td><td><code>PhysicsForceClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Continuous force desire while the clip is active (kick / push)</td></tr><tr><td><code>Vex/Physics/Gravity Override</code></td><td><code>PhysicsGravityOverrideTrack</code></td><td><code>PhysicsGravityOverrideClip</code></td><td><code>GameObject</code></td><td>Scale/reverse gravity while active</td></tr><tr><td><code>Vex/Physics/Kinematic Override</code></td><td><code>PhysicsKinematicOverrideTrack</code></td><td><code>PhysicsKinematicOverrideClip</code></td><td><code>GameObject</code></td><td>Force kinematic mass while active</td></tr><tr><td><code>Vex/Physics/Linear PID</code></td><td><code>PhysicsLinearPIDTrack</code></td><td><code>PhysicsLinearPIDClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Physically drive body toward a position</td></tr><tr><td><code>Vex/Physics/Ricochet</code></td><td><code>PhysicsRicochetTrack</code></td><td><code>PhysicsRicochetClip</code></td><td><code>GameObject</code></td><td>Reflect velocity on contact rules</td></tr><tr><td><code>Vex/Physics/Shape Resize</code></td><td><code>PhysicsShapeResizeTrack</code></td><td><code>PhysicsShapeResizeClip</code></td><td><code>GameObject</code></td><td>Resize physics shape while active</td></tr><tr><td><code>Vex/Physics/Shape Swap</code></td><td><code>PhysicsShapeSwapTrack</code></td><td><code>PhysicsShapeSwapClip</code></td><td><code>GameObject</code></td><td>Swap collider shape while active</td></tr><tr><td><code>Vex/Physics/Socket Return (Weapon Recall)</code></td><td><code>SocketReturnTrack</code></td><td><code>SocketReturnClip</code></td><td><code>WeaponRecallAuthoring</code></td><td>Return socket attachment</td></tr><tr><td><code>Vex/Physics/Spline Follow</code></td><td><code>PhysicsSplineFollowTrack</code></td><td><code>PhysicsSplineFollowClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Follow spline path (needs Unity Splines)</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsAoEQueryClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>AoE query while trigger window open</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsBreakForceClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Break/launch impulse on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsDirectionalQueryClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Directional query while window open</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsKnockbackClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>One-shot knockback on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsTargetSelectClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Select target from query results</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsThrustClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Thrust impulse on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsTriggerConditionClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Gate conditions on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsTriggerForceClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Apply force on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsTriggerInstantiateClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Spawn ObjectDefinition on trigger edge</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsTriggerQueryClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Query overlaps in trigger window</td></tr><tr><td><code>Vex/Physics/Stateful Trigger</code></td><td><code>StatefulTriggerTrack</code></td><td><code>PhysicsVortexClip</code></td><td><code>StatefulTriggerEventAuthoring</code></td><td>Vortex pull on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsAoEQueryClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>AoE query while trigger window open</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsBreakForceClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Break/launch impulse on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsDirectionalQueryClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Directional query while window open</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsKnockbackClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>One-shot knockback on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsTargetSelectClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Select target from query results</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsThrustClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Thrust impulse on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsTriggerConditionClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Gate conditions on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsTriggerForceClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Apply force on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsTriggerInstantiateClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Spawn ObjectDefinition on trigger edge</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsTriggerQueryClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Query overlaps in trigger window</td></tr><tr><td><code>Vex/Physics/Swept Trigger</code></td><td><code>SweptTriggerTrack</code></td><td><code>PhysicsVortexClip</code></td><td><code>SweptTriggerSourceAuthoring</code></td><td>Vortex pull on trigger edge</td></tr><tr><td><code>Vex/Physics/Teleport</code></td><td><code>PhysicsTeleportTrack</code></td><td><code>PhysicsTeleportClip</code></td><td><code>TargetsAuthoring</code></td><td>Snap pose via Targets on activation</td></tr><tr><td><code>Vex/Physics/Velocity</code></td><td><code>PhysicsVelocityTrack</code></td><td><code>PhysicsVelocityClip</code></td><td><code>PhysicsBodyAuthoring</code></td><td>Blend velocity desire while active</td></tr><tr><td><code>Vex/Physics/Velocity Clamp</code></td><td><code>PhysicsVelocityClampTrack</code></td><td><code>PhysicsVelocityClampClip</code></td><td><code>GameObject</code></td><td>Clamp max speed/spin while active</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="full section" id="howto">
+      <h2>How to use (recipe)</h2>
+      <p class="muted"><strong>First success: PhysicsForceClip</strong> — expected: Kick / launch / zero-g / phase through walls / spawn on enter — all from timeline.</p>
+      <ol class="recipe"><li>Prerequisites: com.bovinelabs.timeline, com.bovinelabs.timeline.entitylinks, com.unity.physics, com.unity.physics.custom on the actor/SubScene.</li><li>Open a Playable Director Timeline that bakes with BovineLabs DOTS Timeline.</li><li>Add track menu Vex/Physics/Force (type PhysicsForceTrack).</li><li>Add clip PhysicsForceClip and bind track to PhysicsBodyAuthoring.</li><li>Set the key inspector fields, Bake SubScene, Enter Play, scrub the director.</li></ol>
+    </section>
+
+    <section class="full section" id="diagrams">
+      <h2>Diagrams</h2>
+      <div class="two-col">
+        <div>
+          <h3 class="muted">How to use (workflow)</h3>
+          <div class="diagrams"><iframe title="workflow" src="how-to.html" loading="lazy"></iframe></div>
+        </div>
+        <div>
+          <h3 class="muted">System map (architecture)</h3>
+          <div class="diagrams"><iframe title="architecture" src="architecture.html" loading="lazy"></iframe></div>
+        </div>
+      </div>
     </section>
   </main>
+  <footer class="footer">Designer surface · for types, bake path, ECB, and tests see <a href="for-programmers.html">For programmers</a></footer>
 </body>
 </html>

@@ -5,34 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Timeline UI · Vex package showcase</title>
   <link rel="stylesheet" href="../../assets/site.css" />
-  <style>.hero-accent{background:#F43F5E}</style>
+  <style>
+    .hero-accent{background:#F43F5E}
+    .pill{display:inline-block;background:#1e293b;color:#cbd5e1;padding:2px 10px;border-radius:999px;font-size:12px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:960px){.two-col{grid-template-columns:1fr}}
+    table.cat{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 24px}
+    table.cat th,table.cat td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+    table.cat th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px;font-size:1.35rem}
+    .muted{color:var(--muted)}
+    .diagrams{display:grid;grid-template-columns:1fr;gap:12px}
+    .diagrams iframe{width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#000}
+    .tabs a{margin-right:12px}
+    ol.recipe{padding-left:1.2rem;color:#cbd5e1}
+    ol.recipe li{margin:6px 0}
+    .full{grid-column:1/-1}
+  </style>
 </head>
 <body>
   <header class="top">
     <a href="../../index.html">← All packages</a>
-    <span class="brand">Vex EE · Designer Showcase</span>
+    <span class="brand">Vex EE · Designer + Programmer</span>
   </header>
   <main class="pkg-page">
-    <div class="hero-accent"></div>
+    <div class="hero-accent full"></div>
     <section class="copy">
-      <p class="kicker">🖥 BovineLabs</p>
+      <p class="kicker">🖥 BovineLabs <span class='pill'>Learn #9</span></p>
       <h1>Timeline UI</h1>
       <p class="lede">Panels, typewriter text, numbers from timeline</p>
       <p class="designer"><strong>When a designer says…</strong> During this cutscene, pop a panel, type a line, show HP — UI Toolkit driven by DOTS.</p>
-      <h2>What you get</h2>
-      <ul><li>UXML spawn/teardown</li><li>Text reveal</li><li>Essence UI / data displays</li></ul>
       <p class="mono">com.bovinelabs.timeline.ui</p>
-      <p class="links">
-        <a href="composition/index.html" target="_blank" rel="noopener">Open HyperFrames composition ↗</a>
-        · <a href="architecture.html">Archify architecture ↗</a>
+      <p class="links tabs">
+        <a href="#clips">Clip catalog</a>
+        · <a href="#howto">How to use</a>
+        · <a href="#diagrams">Diagrams</a>
+        · <a href="composition/index.html" target="_blank" rel="noopener">HyperFrames ↗</a>
+        · <a href="for-programmers.html"><strong>For programmers ↗</strong></a>
         · <a href="https://github.com/vex-studio/com.bovinelabs.timeline.ui">GitHub</a>
       </p>
+      <div class="section">
+        <h2>Prerequisites</h2>
+        <p><code>com.bovinelabs.timeline</code>, <code>com.bovinelabs.timeline.entitylinks</code></p>
+        <h2>Soft-gates (optional features)</h2>
+        <p class='muted'>None required for core features.</p>
+      </div>
     </section>
     <section class="stage-wrap">
-      <div class="stage-label">HyperFrames motion card · scrub with player</div>
+      <div class="stage-label">HyperFrames · educational clip strip (scrub)</div>
       <iframe class="stage" title="Timeline UI composition" src="composition/index.html" loading="lazy"></iframe>
-      <p class="hint">Composition is seekable HTML (GSAP). Preview full-screen via the link above, or <code>hyperframes preview</code> in the composition folder.</p>
+      <p class="hint">Motion teaches the <em>catalog</em> (track/clip names on a timeline strip), not a fake Unity sim.
+      Full-screen via the HyperFrames link. Recipe steps are below.</p>
+    </section>
+
+    <section class="full section" id="clips">
+      <h2>Clip &amp; track catalog (7)</h2>
+      <p class="muted">Generated from Authoring <code>[TrackClipType]</code>, <code>[TrackBindingType]</code>, and <code>[DisplayName]</code>. One clip may appear on multiple tracks (e.g. Stateful + Swept).</p>
+      <table class="cat">
+        <thead><tr><th>Menu</th><th>Track</th><th>Clip</th><th>Bind</th><th>Use when</th></tr></thead>
+        <tbody>
+          <tr><td><code>Vex/UI/Bind Override Track</code></td><td><code>UIBindOverrideTrack</code></td><td><code>UIBindOverrideClip</code></td><td><code>—</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/Data Display Track</code></td><td><code>DataDisplayTrack</code></td><td><code>DataDisplayClip</code></td><td><code>Transform</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/Essence UI Track</code></td><td><code>EssenceUITrack</code></td><td><code>EssenceUIClip</code></td><td><code>StatAuthoring</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/Number Track</code></td><td><code>NumberTrack</code></td><td><code>NumberClip</code></td><td><code>—</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/Text Reveal Track</code></td><td><code>UITextRevealTrack</code></td><td><code>UITextRevealClip</code></td><td><code>—</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/USS Class Track</code></td><td><code>UssClassTrack</code></td><td><code>UssClassClip</code></td><td><code>—</code></td><td>See clip inspector fields in Authoring</td></tr><tr><td><code>Vex/UI/UXML View Track</code></td><td><code>UxmlViewTrack</code></td><td><code>UxmlViewClip</code></td><td><code>—</code></td><td>See clip inspector fields in Authoring</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="full section" id="howto">
+      <h2>How to use (recipe)</h2>
+      <p class="muted"><strong>First success: UIBindOverrideClip</strong> — expected: During this cutscene, pop a panel, type a line, show HP — UI Toolkit driven by DOTS.</p>
+      <ol class="recipe"><li>Prerequisites: com.bovinelabs.timeline, com.bovinelabs.timeline.entitylinks on the actor/SubScene.</li><li>Open a Playable Director Timeline that bakes with BovineLabs DOTS Timeline.</li><li>Add track menu Vex/UI/Bind Override Track (type UIBindOverrideTrack).</li><li>Add clip UIBindOverrideClip and bind track to —.</li><li>Set the key inspector fields, Bake SubScene, Enter Play, scrub the director.</li></ol>
+    </section>
+
+    <section class="full section" id="diagrams">
+      <h2>Diagrams</h2>
+      <div class="two-col">
+        <div>
+          <h3 class="muted">How to use (workflow)</h3>
+          <div class="diagrams"><iframe title="workflow" src="how-to.html" loading="lazy"></iframe></div>
+        </div>
+        <div>
+          <h3 class="muted">System map (architecture)</h3>
+          <div class="diagrams"><iframe title="architecture" src="architecture.html" loading="lazy"></iframe></div>
+        </div>
+      </div>
     </section>
   </main>
+  <footer class="footer">Designer surface · for types, bake path, ECB, and tests see <a href="for-programmers.html">For programmers</a></footer>
 </body>
 </html>

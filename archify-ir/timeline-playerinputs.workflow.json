@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Player Inputs \u2014 how to use",
+    "subtitle": "Editor \u2192 Bake \u2192 Runtime (designer path)"
+  },
+  "lanes": [
+    {
+      "id": "editor",
+      "label": "Timeline Editor"
+    },
+    {
+      "id": "bake",
+      "label": "Bake / SubScene"
+    },
+    {
+      "id": "runtime",
+      "label": "Play Mode"
+    }
+  ],
+  "phases": [
+    {
+      "id": "author",
+      "label": "Author",
+      "fromCol": 0,
+      "toCol": 2
+    },
+    {
+      "id": "cook",
+      "label": "Bake",
+      "fromCol": 4,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "run",
+      "label": "See result",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "prereq",
+    "author",
+    "bind",
+    "bake",
+    "play",
+    "effect"
+  ],
+  "nodes": [
+    {
+      "id": "prereq",
+      "lane": "editor",
+      "col": 0,
+      "type": "external",
+      "label": "Prerequisites",
+      "sublabel": "actor + deps"
+    },
+    {
+      "id": "author",
+      "lane": "editor",
+      "col": 2,
+      "type": "frontend",
+      "label": "Track + clip",
+      "sublabel": "AxisTransformTra",
+      "tag": "AxisTransformClip"
+    },
+    {
+      "id": "bind",
+      "lane": "editor",
+      "col": 4,
+      "type": "security",
+      "label": "Bind",
+      "sublabel": "TargetsAuthoring",
+      "tag": "required"
+    },
+    {
+      "id": "bake",
+      "lane": "bake",
+      "col": 4,
+      "type": "backend",
+      "label": "Bake SubScene",
+      "sublabel": "DOTS authoring",
+      "tag": "must bake"
+    },
+    {
+      "id": "play",
+      "lane": "runtime",
+      "col": 4,
+      "type": "backend",
+      "label": "Enter Play",
+      "sublabel": "scrub director"
+    },
+    {
+      "id": "effect",
+      "lane": "runtime",
+      "col": 5,
+      "type": "database",
+      "label": "Effect",
+      "sublabel": "body / event / UI"
+    }
+  ],
+  "edges": [
+    {
+      "from": "prereq",
+      "to": "author",
+      "variant": "emphasis"
+    },
+    {
+      "from": "author",
+      "to": "bind",
+      "variant": "default"
+    },
+    {
+      "from": "bind",
+      "to": "bake",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "drop"
+    },
+    {
+      "from": "bake",
+      "to": "play",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "drop"
+    },
+    {
+      "from": "play",
+      "to": "effect",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Designer checklist",
+      "items": [
+        "Track menu name matches *Track type",
+        "Clip window: while-active vs edge-fire",
+        "Bake SubScene before judging play",
+        "If nothing happens: binding / prereqs / soft-gates"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Soft-gates",
+      "items": [
+        "UNITY_SPLINES: Spline-related tracks",
+        "BL_MOVEMENT: NavFlowInput (optional)",
+        "BL_QUILL: Debug drawers (optional)"
+      ]
+    }
+  ]
+}

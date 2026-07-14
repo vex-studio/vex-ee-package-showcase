@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timeline Audio · For programmers</title>
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <style>
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 28px 64px}
+    .diagrams iframe{width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#000}
+    ul.truth li{margin:8px 0;color:#cbd5e1}
+    code{font-size:13px}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a href="index.html">← Designer page</a>
+    <span class="brand">Programmer · contribute with confidence</span>
+  </header>
+  <main class="wrap">
+    <h1>Timeline Audio</h1>
+    <p class="lede muted">com.bovinelabs.timeline.audio · vacuum branch on GitHub</p>
+    <p>Real architecture prose lives in package <code>README.md</code> — <a href="https://github.com/vex-studio/com.bovinelabs.timeline.audio/blob/vacuum/timeline-audio/README.md">open on GitHub</a> (and under <code>Packages/com.bovinelabs.timeline.audio/README.md</code> in the host monorepo).</p>
+    <p class="links">
+      <a href="https://github.com/vex-studio/com.bovinelabs.timeline.audio">GitHub package</a>
+      · <a href="https://github.com/vex-studio/com.bovinelabs.timeline.audio/blob/vacuum/timeline-audio/README.md">README</a>
+      · <a href="architecture.html">Designer architecture</a>
+      · <a href="how-to.html">Designer how-to</a>
+      · <a href="programmer-architecture.html">Assembly map ↗</a>
+    </p>
+
+    <h2>Start here</h2>
+    <ul class="truth">
+      <li><strong>Authoring surface:</strong> <code>ImpactStingerTrack</code></li>
+      <li><strong>Clips in catalog:</strong> 1 (see designer page table)</li>
+      <li><strong>Prereqs:</strong> com.bovinelabs.timeline, com.bovinelabs.timeline.entitylinks</li>
+      <li><strong>Soft-gates (compile):</strong> BL_QUILL</li>
+      <li><strong>Tests:</strong> look for <code>*.Tests</code> asmdef with <code>defineConstraints: ["UNITY_INCLUDE_TESTS"]</code></li>
+      <li><strong>Do not</strong> confuse vacuum soft-gates (optional package present) with runtime dual-paths (latch / clip gate / while-active)</li>
+    </ul>
+
+    <h2>Assembly / layer map</h2>
+    <div class="diagrams"><iframe src="programmer-architecture.html" title="programmer architecture" loading="lazy"></iframe></div>
+
+    <h2>Contribution checklist</h2>
+    <ol class="recipe" style="color:#cbd5e1;padding-left:1.2rem">
+      <li>Add data types in <strong>Data</strong> assembly (components/buffers only).</li>
+      <li>Add Clip/Track + baker glue in <strong>Authoring</strong>.</li>
+      <li>Add TrackSystem / apply systems in <strong>Runtime</strong> (respect render vs fixed clocks if physics).</li>
+      <li>Register Burst/generic jobs in <code>AssemblyInfo</code> if the package uses them (IL2CPP trap).</li>
+      <li>Add EditMode tests that pin lifecycle + one apply path.</li>
+      <li>Keep soft-gates as <code>versionDefines</code> + <code>#if</code> — never delete features for vacuum.</li>
+    </ol>
+
+    <h2>Host context</h2>
+    <p class="muted">This package is imported on host branch <code>vacuum/packages</code>. Host openwiki covers vacuum ops, not package internals — use this page + package sources.</p>
+  </main>
+</body>
+</html>
