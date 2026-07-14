@@ -18,11 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Only upload static site roots; avoid shipping .git history in artifact
+      - name: Prepare publish directory
+        run: |
+          mkdir -p _site
+          # copy everything except git/workflows
+          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' ./ _site/
+          # ensure nojekyll
+          touch _site/.nojekyll
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
