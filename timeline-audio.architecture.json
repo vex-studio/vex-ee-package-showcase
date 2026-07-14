@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline Audio",
+    "subtitle": "Physics-reactive impacts + timeline stingers"
+  },
+  "components": [
+    {
+      "id": "phys",
+      "type": "cloud",
+      "label": "Physics Contacts",
+      "sublabel": "impact / scrape",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "events"
+    },
+    {
+      "id": "sys",
+      "type": "backend",
+      "label": "Impact Systems",
+      "sublabel": "resolve banks",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "DOTS"
+    },
+    {
+      "id": "bank",
+      "type": "database",
+      "label": "Surface Banks",
+      "sublabel": "audio package",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "content"
+    },
+    {
+      "id": "voice",
+      "type": "frontend",
+      "label": "Audio Voices",
+      "sublabel": "ECS playback",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "hear"
+    },
+    {
+      "id": "tl",
+      "type": "frontend",
+      "label": "Stinger Track",
+      "sublabel": "authored hits",
+      "pos": [
+        850,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "timeline"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "phys",
+        "sys",
+        "bank",
+        "voice",
+        "tl"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "phys",
+      "to": "sys",
+      "label": "contact",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "bank",
+      "label": "lookup",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "voice",
+      "label": "spawn",
+      "labelDy": 56
+    },
+    {
+      "from": "tl",
+      "to": "sys",
+      "label": "stinger",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "orange",
+      "title": "Reactive",
+      "items": [
+        "Hardness-based impacts",
+        "Scrape loops (opt-in)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Authored",
+      "items": [
+        "Timeline stinger clips"
+      ]
+    }
+  ]
+}

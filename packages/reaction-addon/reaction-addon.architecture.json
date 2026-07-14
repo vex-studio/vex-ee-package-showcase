@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Reaction Addon",
+    "subtitle": "Lifecycle & tick actions on top of Reaction core"
+  },
+  "components": [
+    {
+      "id": "react",
+      "type": "backend",
+      "label": "Reaction Core",
+      "sublabel": "IF/THEN",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "baseline"
+    },
+    {
+      "id": "addon",
+      "type": "backend",
+      "label": "Addon Actions",
+      "sublabel": "lifecycle / tick",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "ext"
+    },
+    {
+      "id": "tl",
+      "type": "backend",
+      "label": "Timeline Essence",
+      "sublabel": "events / stats",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "consumer"
+    },
+    {
+      "id": "ent",
+      "type": "database",
+      "label": "Entities",
+      "sublabel": "payloads",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "ECS"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "react",
+        "addon",
+        "ent"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "react",
+      "to": "addon",
+      "label": "extends",
+      "labelDy": 56
+    },
+    {
+      "from": "addon",
+      "to": "ent",
+      "label": "actions",
+      "labelDy": 56
+    },
+    {
+      "from": "tl",
+      "to": "react",
+      "label": "events",
+      "labelDy": 56
+    },
+    {
+      "from": "react",
+      "to": "ent",
+      "label": "mutate",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "THEN side",
+      "items": [
+        "Lifecycle management actions",
+        "Tick distribution helpers"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "With",
+      "items": [
+        "Reaction core + Essence timeline"
+      ]
+    }
+  ]
+}

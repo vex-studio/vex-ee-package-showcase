@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline Parenting",
+    "subtitle": "TemporaryDetach \u2014 unparent for a clip, reattach after"
+  },
+  "components": [
+    {
+      "id": "clip",
+      "type": "frontend",
+      "label": "TemporaryDetach",
+      "sublabel": "clip window",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "author"
+    },
+    {
+      "id": "sys",
+      "type": "backend",
+      "label": "Detach System",
+      "sublabel": "enter/exit SM",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "DOTS"
+    },
+    {
+      "id": "parent",
+      "type": "database",
+      "label": "Parent link",
+      "sublabel": "hierarchy",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "ECS"
+    },
+    {
+      "id": "pose",
+      "type": "database",
+      "label": "World pose",
+      "sublabel": "LocalTransform",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "ECS"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "clip",
+        "sys",
+        "parent",
+        "pose"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "clip",
+      "to": "sys",
+      "label": "while active",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "parent"
+    },
+    {
+      "from": "sys",
+      "to": "pose",
+      "label": "world snap",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Designer asks",
+      "items": [
+        "Come off parent for a beat",
+        "Reattach automatically"
+      ]
+    }
+  ]
+}

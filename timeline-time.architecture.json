@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline Time",
+    "subtitle": "World & per-timeline time scale (bullet-time / hit-stop)"
+  },
+  "components": [
+    {
+      "id": "tl",
+      "type": "frontend",
+      "label": "Time Scale Clips",
+      "sublabel": "world / timeline",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "author"
+    },
+    {
+      "id": "wts",
+      "type": "backend",
+      "label": "WorldTimeScale",
+      "sublabel": "singleton",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "global"
+    },
+    {
+      "id": "tts",
+      "type": "backend",
+      "label": "Timeline Scale",
+      "sublabel": "stat-driven",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "local"
+    },
+    {
+      "id": "clock",
+      "type": "database",
+      "label": "Game / Timeline clocks",
+      "sublabel": "ECS",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "time"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "tl",
+        "wts",
+        "tts",
+        "clock"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "tl",
+      "to": "wts",
+      "label": "set",
+      "labelDy": 56
+    },
+    {
+      "from": "tl",
+      "to": "tts",
+      "label": "modulate",
+      "labelDy": 56
+    },
+    {
+      "from": "wts",
+      "to": "clock",
+      "label": "scale",
+      "labelDy": 56
+    },
+    {
+      "from": "tts",
+      "to": "clock",
+      "label": "scale",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "Designer asks",
+      "items": [
+        "Bullet time",
+        "Freeze frame",
+        "Slow this cutscene"
+      ]
+    }
+  ]
+}

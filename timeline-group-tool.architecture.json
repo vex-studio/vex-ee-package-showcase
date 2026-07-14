@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline Group Tool",
+    "subtitle": "Editor-only lossless GroupTrack split/join"
+  },
+  "components": [
+    {
+      "id": "ed",
+      "type": "frontend",
+      "label": "Timeline Editor",
+      "sublabel": "Unity",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "UI"
+    },
+    {
+      "id": "tool",
+      "type": "backend",
+      "label": "Group Tool",
+      "sublabel": "split / join",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "editor"
+    },
+    {
+      "id": "assets",
+      "type": "database",
+      "label": "Clip Sub-assets",
+      "sublabel": "persisted",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "assets"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "ed",
+        "tool",
+        "assets"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "ed",
+      "to": "tool",
+      "label": "invoke",
+      "labelDy": 56
+    },
+    {
+      "from": "tool",
+      "to": "assets",
+      "label": "rewrite",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Designer benefit",
+      "items": [
+        "Restructure groups without losing clips"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline UI",
+    "subtitle": "UI Toolkit panels driven by DOTS timeline"
+  },
+  "components": [
+    {
+      "id": "tl",
+      "type": "frontend",
+      "label": "UI Tracks",
+      "sublabel": "UXML / text / number",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "author"
+    },
+    {
+      "id": "sys",
+      "type": "backend",
+      "label": "UI Systems",
+      "sublabel": "spawn / mirror",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "DOTS"
+    },
+    {
+      "id": "uitk",
+      "type": "frontend",
+      "label": "UI Toolkit",
+      "sublabel": "panels",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "view"
+    },
+    {
+      "id": "ess",
+      "type": "database",
+      "label": "Essence numbers",
+      "sublabel": "stats",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "data"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "tl",
+        "sys",
+        "uitk",
+        "ess"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "tl",
+      "to": "sys",
+      "label": "drive",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "uitk",
+      "label": "bind",
+      "labelDy": 56
+    },
+    {
+      "from": "ess",
+      "to": "sys",
+      "label": "display",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Designer asks",
+      "items": [
+        "Pop a panel mid-cutscene",
+        "Type out a line",
+        "Show HP"
+      ]
+    }
+  ]
+}

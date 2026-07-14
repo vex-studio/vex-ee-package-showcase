@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Timeline Transform",
+    "subtitle": "Move / rotate / scale SubScene objects from DOTS timeline"
+  },
+  "components": [
+    {
+      "id": "tl",
+      "type": "frontend",
+      "label": "Timeline Asset",
+      "sublabel": "clips / tracks",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "author"
+    },
+    {
+      "id": "dir",
+      "type": "backend",
+      "label": "Director",
+      "sublabel": "playback",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "runtime"
+    },
+    {
+      "id": "sys",
+      "type": "backend",
+      "label": "Transform Systems",
+      "sublabel": "pos/rot/scale",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "DOTS"
+    },
+    {
+      "id": "xf",
+      "type": "database",
+      "label": "LocalTransform",
+      "sublabel": "entities",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "ECS"
+    },
+    {
+      "id": "carrot",
+      "type": "frontend",
+      "label": "Carrot Marker",
+      "sublabel": "designer aid",
+      "pos": [
+        850,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "tool"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "tl",
+        "dir",
+        "sys",
+        "xf"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "tl",
+      "to": "dir",
+      "label": "bind",
+      "labelDy": 56
+    },
+    {
+      "from": "dir",
+      "to": "sys",
+      "label": "drive",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "xf",
+      "label": "write",
+      "labelDy": 56
+    },
+    {
+      "from": "carrot",
+      "to": "tl",
+      "label": "guide",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Designer asks",
+      "items": [
+        "Move along timeline",
+        "Face / look-at target",
+        "Grow / squash"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Tracks",
+      "items": [
+        "Position \u00b7 Rotation \u00b7 Scale",
+        "LookAt \u00b7 Start clips"
+      ]
+    }
+  ]
+}

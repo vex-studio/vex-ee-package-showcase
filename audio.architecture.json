@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "BovineLabs Audio",
+    "subtitle": "Content bank \u2014 impact & stinger assets for timeline/runtime consumers"
+  },
+  "components": [
+    {
+      "id": "content",
+      "type": "frontend",
+      "label": "Audio Assets",
+      "sublabel": "clips / banks",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "content"
+    },
+    {
+      "id": "tl_audio",
+      "type": "backend",
+      "label": "Timeline Audio",
+      "sublabel": "consumer",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "optional"
+    },
+    {
+      "id": "ecs",
+      "type": "database",
+      "label": "ECS Audio",
+      "sublabel": "playback entities",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "runtime"
+    },
+    {
+      "id": "designer",
+      "type": "external",
+      "label": "Designer",
+      "sublabel": "picks banks",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "content",
+        "tl_audio",
+        "ecs"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "designer",
+      "to": "content",
+      "label": "author",
+      "labelDy": 56
+    },
+    {
+      "from": "content",
+      "to": "tl_audio",
+      "label": "banks",
+      "labelDy": 56
+    },
+    {
+      "from": "tl_audio",
+      "to": "ecs",
+      "label": "spawn voices",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Role",
+      "items": [
+        "Shared audio content package",
+        "Not a track family \u2014 assets only"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Consumers",
+      "items": [
+        "Timeline Audio stingers",
+        "Impact / scrape surface banks"
+      ]
+    }
+  ]
+}

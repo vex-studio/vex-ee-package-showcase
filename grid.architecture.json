@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "BovineLabs Grid Core",
+    "subtitle": "2D grid buffers for influence fields and sampling"
+  },
+  "components": [
+    {
+      "id": "auth",
+      "type": "frontend",
+      "label": "Grid Authoring",
+      "sublabel": "baker inputs",
+      "pos": [
+        50,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "edit"
+    },
+    {
+      "id": "grid",
+      "type": "database",
+      "label": "Grid Buffers",
+      "sublabel": "cells / fields",
+      "pos": [
+        250,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "core"
+    },
+    {
+      "id": "infl",
+      "type": "backend",
+      "label": "Grid Influence",
+      "sublabel": "timeline stamps",
+      "pos": [
+        450,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "consumer"
+    },
+    {
+      "id": "sys",
+      "type": "backend",
+      "label": "Grid Systems",
+      "sublabel": "sample / flow",
+      "pos": [
+        650,
+        280
+      ],
+      "size": [
+        140,
+        70
+      ],
+      "tag": "runtime"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Package runtime",
+      "wraps": [
+        "auth",
+        "grid",
+        "infl",
+        "sys"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "auth",
+      "to": "grid",
+      "label": "bake",
+      "labelDy": 56
+    },
+    {
+      "from": "infl",
+      "to": "grid",
+      "label": "stamp",
+      "labelDy": 56
+    },
+    {
+      "from": "sys",
+      "to": "grid",
+      "label": "read",
+      "labelDy": 56
+    },
+    {
+      "from": "infl",
+      "to": "sys",
+      "label": "query",
+      "labelDy": 56
+    }
+  ],
+  "cards": [
+    {
+      "dot": "violet",
+      "title": "Data",
+      "items": [
+        "Burst-friendly 2D fields",
+        "Feeds danger / vision / flow"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Used by",
+      "items": [
+        "timeline.grid.influence tracks"
+      ]
+    }
+  ]
+}
