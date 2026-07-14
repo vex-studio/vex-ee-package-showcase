@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080" />
+  <title>Group Tool — HyperFrames showcase</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:1920px; height:1080px; overflow:hidden; background:#0b0f17; }
+    body { font-family: "Inter", system-ui, sans-serif; color:#f8fafc; }
+    #root {
+      width:1920px; height:1080px; position:relative;
+      background: radial-gradient(1200px 700px at 20% 10%, #64748B33, transparent 55%),
+                  linear-gradient(160deg, #0b0f17 0%, #111827 55%, #0b0f17 100%);
+    }
+    #accent { position:absolute; left:0; top:0; width:18px; height:1080px; background:#64748B; }
+    #kicker {
+      position:absolute; left:96px; top:120px; font-size:28px; letter-spacing:0.18em;
+      text-transform:uppercase; color:#64748B; font-weight:600;
+    }
+    #title {
+      position:absolute; left:96px; top:180px; font-size:92px; font-weight:800; line-height:1.05;
+      max-width:1400px;
+    }
+    #tagline {
+      position:absolute; left:96px; top:360px; font-size:40px; color:#cbd5e1; max-width:1500px; line-height:1.35;
+    }
+    .bullet {
+      position:absolute; left:96px; font-size:34px; color:#e2e8f0;
+      padding:14px 28px; border-left:6px solid #64748B; background:#ffffff10;
+      border-radius:0 12px 12px 0; max-width:1200px;
+    }
+    #b0 { top:500px; } #b1 { top:590px; } #b2 { top:680px; } #b3 { top:770px; }
+    #pkg {
+      position:absolute; left:96px; bottom:80px; font-size:24px; color:#94a3b8; font-family: ui-monospace, monospace;
+    }
+    #badge {
+      position:absolute; right:80px; bottom:80px; font-size:22px; color:#0b0f17; background:#64748B;
+      padding:12px 22px; border-radius:999px; font-weight:700;
+    }
+    #icon { position:absolute; right:120px; top:140px; font-size:140px; opacity:0.9; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="timeline-group-tool" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+    <div class="clip" id="accent" data-start="0" data-duration="8" data-track-index="0"></div>
+    <div class="clip" id="icon" data-start="0" data-duration="8" data-track-index="1">✂</div>
+    <div class="clip" id="kicker" data-start="0" data-duration="8" data-track-index="2">BovineLabs · Vex EE</div>
+    <div class="clip" id="title" data-start="0" data-duration="8" data-track-index="3">Group Tool</div>
+    <div class="clip" id="tagline" data-start="0" data-duration="8" data-track-index="4">Lossless split &amp; join for Timeline GroupTracks</div>
+      <div class="clip bullet" id="b0" data-start="0" data-duration="8" data-track-index="5">Split GroupTracks</div>
+      <div class="clip bullet" id="b1" data-start="0" data-duration="8" data-track-index="6">Join groups</div>
+      <div class="clip bullet" id="b2" data-start="0" data-duration="8" data-track-index="7">Persists sub-assets</div>
+    <div class="clip" id="pkg" data-start="0" data-duration="8" data-track-index="8">com.bovinelabs.timeline.group-tool</div>
+    <div class="clip" id="badge" data-start="0" data-duration="8" data-track-index="9">timeline · DOTS · designer tool</div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.from("#icon", { opacity: 0, scale: 0.6, duration: 0.6, ease: "back.out(1.6)" }, 0.1);
+    tl.from("#kicker", { opacity: 0, y: -20, duration: 0.4 }, 0.2);
+    tl.from("#title", { opacity: 0, y: 40, duration: 0.55 }, 0.35);
+    tl.from("#tagline", { opacity: 0, y: 24, duration: 0.5 }, 0.7);
+      tl.from("#b0", { opacity: 0, x: -40, duration: 0.45 }, 1.20);
+      tl.from("#b1", { opacity: 0, x: -40, duration: 0.45 }, 1.55);
+      tl.from("#b2", { opacity: 0, x: -40, duration: 0.45 }, 1.90);
+    tl.from("#pkg", { opacity: 0, duration: 0.4 }, 2.5);
+    tl.from("#badge", { opacity: 0, scale: 0.9, duration: 0.4 }, 2.8);
+    window.__timelines["timeline-group-tool"] = tl;
+  </script>
+</body>
+</html>
